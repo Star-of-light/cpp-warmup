@@ -135,7 +135,70 @@ int main() {
     // =================================================================
 
     cout << "=== Q2 ===\n";
+    
+    int  counts_of_grade_A = 0;
+    float tolal_kg_A= 0;
+    float avA =0;
+    Delivery heaviest = logbook[0]; 
+    
+        for(Delivery x: logbook){
+            if(x.grade =='A'){
+                counts_of_grade_A ++;
+                tolal_kg_A += x.kg;
+            }
+            // if (x.kg > heaviest.kg) {
+            //     heaviest = x;
+            // }  
+        }
+        
+        avA = ( tolal_kg_A)/(counts_of_grade_A);
+        
+      
+        
+        cout << "GRADE A:" <<counts_of_grade_A<<","<< tolal_kg_A << "total," << avA<< "kg average" <<endl;
+    
 
+        int counts_of_grade_B = 0;
+        float tolal_kg_B =0;
+        float avB =0;
+        for(Delivery b: logbook){
+            if(b.grade =='B'){
+                counts_of_grade_B ++;
+                 tolal_kg_B += b.kg;
+            }
+            // if (b.kg > heaviest.kg) {
+            //     heaviest = b;
+            // }  
+        }
+            avB = ( tolal_kg_B)/(counts_of_grade_B);
+
+       
+        
+        cout<< "GRADE B:" <<counts_of_grade_B<<","<< tolal_kg_B << "total," << avB<< "kg average" <<endl;
+    
+        
+    
+        int counts_of_grade_C = 0;
+        float tolal_kg_C = 0;
+        float avC = 0;
+        for(Delivery c: logbook){
+            if(c.grade =='C'){
+                counts_of_grade_C ++;
+                tolal_kg_C += c.kg;
+            }
+            // if (c.kg > heaviest.kg) {
+            //     heaviest = c;
+            // }  
+            tolal_kg_C += c.kg;
+            avC = ( tolal_kg_C)/(counts_of_grade_C);
+
+       
+        }
+        cout<< "GRADE C:" <<counts_of_grade_C<<","<< tolal_kg_C<< "total," << avC<< "kg average" <<endl;
+    
+   
+    
+        
 
 
 

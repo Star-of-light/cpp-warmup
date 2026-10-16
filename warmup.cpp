@@ -268,9 +268,32 @@ for (size_t i = 0; i + 1 < indices.size(); i++) {
     // =================================================================
 
     cout << "=== Q5 ===\n";
-
-
-
+int accepte_count= 0 ;
+int rejected_count = 0;
+for(RawRecord r : rawrecords){
+    bool valid_id = (r.id.length() ==4 &&r.id[0] =='F');
+    if(valid_id){
+        for(int i =1; i<=3;i++){
+            if(!isdigit(r.id[i])){
+                valid_id = false;
+            }
+        }
+    }
+    if(!valid_id){
+        cout<< r.id << " REJECT - bad id" <<endl;
+        rejected_count++;
+    }
+    if(r.weight.empty()){
+        cout<< r.id << " REJECT - weight missing" <<endl;
+        rejected_count++;
+    }
+    // bool weight_is_numeric = true;
+    if(r.weight>80 && r.weight<0){
+        cout<< r.id << " REJECT - weight out of range" <<endl;
+        rejected_count++;
+    }
+    
+        
 
 
     cout << "\n";
@@ -339,4 +362,3 @@ for (size_t i = 0; i + 1 < indices.size(); i++) {
 // double payment(double kg, char grade) {
 //
 // }
-

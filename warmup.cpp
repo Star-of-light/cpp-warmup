@@ -121,7 +121,35 @@ int main() {
     // =================================================================
 
     cout << "=== Q1 ===\n";
+ int count = 0;
+ int total =0;
+double heaviest_weight =morningWeights[0];
+ int heaviest_position = 0;
+ int longest_valid_run = 1;
+   int x ;
+ vector<int>indices;
+for (int i = 0;i< 12;i++){
+    total +=morningWeights[i];
+    if(morningWeights[i]>0&& morningWeights[i]<80){
+       count++;
+        indices.push_back(i);
+    }
+    if(morningWeights[i]>heaviest_weight){
+        heaviest_weight =morningWeights[i];
+        heaviest_position = i;
+    }
+}
+for (size_t i = 0; i + 1 < indices.size(); i++) {
 
+     x = indices[i+1]+1- indices[i];
+    if(x>longest_valid_run){
+        longest_valid_run = x;
+    }
+}
+ cout << "Total: " << total << " kg\n";
+    cout << "Valid: " <<count << " of " << morningWeights.size() << "\n";
+    cout << "Heaviest: " << heaviest_weight<< " kg at position " << heaviest_position<<endl;
+    cout << "Longest valid run: " <<   longest_valid_run<<endl;
 
 
 
@@ -139,7 +167,7 @@ int main() {
     int  counts_of_grade_A = 0;
     float tolal_kg_A= 0;
     float avA =0;
-    Delivery heaviest = logbook[0]; 
+    
     
         for(Delivery x: logbook){
             if(x.grade =='A'){
@@ -311,3 +339,4 @@ int main() {
 // double payment(double kg, char grade) {
 //
 // }
+
